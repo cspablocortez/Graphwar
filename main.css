@@ -1,8 +1,124 @@
+:root {
+    --theme-color: rgb(10, 113, 53, 0.5); 
+    --bg-gradient: linear-gradient(0deg, rgb(12, 51, 42) 0%, rgba(0,0,0,1) 100%);
+    --body-bg-color: rgb(6, 27, 23);
+    --borders-box-shadow: 0px 0px 10px 5px rgb(40 163 35 / 50%);
+    --text-color: rgb(10, 113, 53, 1); 
+}
+
+@font-face {
+    font-family: 'Cutive-Mono';
+    src: url('/assets/CutiveMono-Regular.ttf');
+}
+
 body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     height: 100vh;
     margin: 0;
+    background: var(--body-bg-color);
+    background: var(--bg-gradient);
+    font-family: 'Cutive-Mono', monospace !important;
 }
 
+/* Step 2: Style input box and button to be side by side */
+
+#controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+    box-shadow: var(--borders-box-shadow);
+}
+
+#functionInput {
+    width: 300px;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+#functionInput::-webkit-input-placeholder {
+    color: rgb(153, 153, 153);
+}
+
+input:focus{
+    outline: none;
+}
+
+#plotButton {
+    padding: 5px 10px;
+    cursor: pointer;
+    color: rgb(17, 174, 83);
+    width: 60px;
+    line-height: 50px;
+    text-align: center;
+    border: none;
+    font-size: 2rem;
+    border: 2px solid rgb(14, 46, 46);
+    background-color: var(--theme-color);
+}
+
+#plotButton:hover {
+    cursor: pointer;
+    background-color: rgb(40 163 35 / 50%);
+    color: white;
+}
+
+canvas {
+    border: 2px solid rgb(14, 46, 46);
+    background-color: var(--theme-color);
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 20px 20px; 
+    box-shadow: var(--borders-box-shadow);
+}
+
+input[type="text"] {
+    background-color: var(--theme-color);
+    color: white;
+    font-family: 'Cutive-Mono', monospace !important;
+    border: 2px solid rgb(14, 46, 46);
+}
+
+nav {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+    color: var(--text-color);
+    width: 90%;
+    font-size: 1.4rem;
+}
+
+nav h1 {
+    font-size: 2.2rem;
+}
+
+nav a {
+    margin-right: 1rem;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+nav a:last-child {
+    margin-right: 0;
+}
+
+.container {
+    width: 40%;
+    padding: 1rem; /* 1rem = 16px */
+    margin-top: 0rem;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-color);
+}
+
+.container p {
+    font-size: 1.4rem;
+}
+
+a {
+    color: var(--text-color);
+}
