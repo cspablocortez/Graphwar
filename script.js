@@ -1,6 +1,7 @@
 let func = ''; 
 let input; 
 let button; 
+let history = [];
 
 
 function setup() {
@@ -22,6 +23,7 @@ function draw() {
   line(width / 2, 0, width / 2, height);                    // Y-axis
 
   if (func) {
+    history.push(func);
     plot();
   }
 }
