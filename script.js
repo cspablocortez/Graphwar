@@ -4,24 +4,39 @@ let button;
 
 
 function setup() {
-    createCanvas(600, 500);
+  createCanvas(600, 500);
 
-    input = select('#functionInput');
-    button = select('#plotButton');
-    button.mousePressed(sanitizeInput); 
-    
+  input = select('#functionInput');
+  button = select('#plotButton');
+  button.mousePressed(sanitizeInput); 
+
+  // 1-3 circles using the circle(X, Y, Diameter);
+
+  setObstacles();
 }
   
-  function draw() {
+function draw() {
 
-    stroke(255);
-    line(0, height / 2, width, height / 2);                   // X-axis
-    line(width / 2, 0, width / 2, height);                    // Y-axis
+  stroke(255);
+  line(0, height / 2, width, height / 2);                   // X-axis
+  line(width / 2, 0, width / 2, height);                    // Y-axis
 
-    if (func) {
-      plot();
-    }
+  if (func) {
+    plot();
   }
+}
+
+function setObstacles() {
+  let obstacleAmount = random(3, 9);
+  fill(10, 113, 53);
+  for (let i = 0; i <= obstacleAmount; i++) {
+    let x = random(0, width);
+    let y = random(0, height);
+    let diameter = random(10, 100);
+
+    circle(x, y, diameter);
+  }
+}
 
 function sanitizeInput() {
   func = input.value().replace('^', '**').replace(/ln/g, 'Math.log'); 
