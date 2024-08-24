@@ -3,6 +3,22 @@ let input;
 let button; 
 let history = [];
 
+let player = {
+  x: 100,
+  y: 100,
+  diameter: 15,
+  color: "#d8411c",
+  label: "Player Name",
+  draw: function() {
+    fill(this.color);
+    stroke("black");
+    this.x = random(0, width - (4 * this.diameter));
+    this.y = random(0, height - (4 * this.diameter));
+    circle(this.x, this.y, this.diameter);
+    text(this.label + " (" + floor(this.x) + "," + floor(this.y) + ")" , this.x - (4 * this.diameter), this.y - this.diameter);
+  }
+}
+
 
 function setup() {
   createCanvas(600, 500);
@@ -14,6 +30,10 @@ function setup() {
   // 1-3 circles using the circle(X, Y, Diameter);
 
   setObstacles();
+  player.draw();
+
+  console.log("Player X: " + player.x);
+  console.log("Player Y: " + player.y);
 }
   
 function draw() {
@@ -46,7 +66,7 @@ function sanitizeInput() {
 
 function plot() {
   noFill();
-  stroke(0, 151, 101);
+  stroke(0, 0, 0);
 
   beginShape();
   for (let x = -width / 2; x < width / 2; x++) {
